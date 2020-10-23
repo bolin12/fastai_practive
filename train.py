@@ -5,6 +5,7 @@
 # adapted from https://github.com/fastai/fastai/blob/master/examples/train_imagenette.py
 # changed per gpu bs for bs_rat
 from fastai.vision import *
+import fastai.vision
 from fastai.distributed import *
 from fastprogress import fastprogress
 from fastcore.script import *
@@ -49,13 +50,13 @@ def get_data(size, woof, bs, workers=None):
 #from novograd import *
 #from rangervar import *
 from ranger import *
-from torch import optim
-#from ralamb import *
-#from over9000 import *
-#from lookahead import *
-#from adams import *
-#from rangernovo import *
-#from rangerlars import *
+# from torch import optim
+# from ralamb import *
+# from over9000 import *
+# from lookahead import *
+# from adams import *
+# from rangernovo import *
+# from rangerlars import *
 
 def fit_with_annealing(learn:Learner, num_epoch:int, lr:float=defaults.lr, annealing_start:float=0.7)->None:
     n = len(learn.data.train_dl)
